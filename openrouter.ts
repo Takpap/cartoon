@@ -1,8 +1,11 @@
 import OpenAI from 'openai'
 
 // 建议将 API Key 放在环境变量中
-const OPENROUTER_API_KEY
-  = 'OPENROUTER_API_KEY_PLACEHOLDER'
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY
+
+if (!OPENROUTER_API_KEY) {
+  throw new Error('OPENROUTER_API_KEY is required')
+}
 
 const openai = new OpenAI({
   baseURL: 'https://openrouter.ai/api/v1',
